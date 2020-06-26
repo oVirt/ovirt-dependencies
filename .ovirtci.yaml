@@ -2,4 +2,4 @@
 arch: x86_64
 distro: el8
 release-branches:
-  master: master
+  master: ovirt-master
