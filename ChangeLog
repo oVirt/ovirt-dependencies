@@ -1,5 +1,6 @@
 ovirt-dependnecies -- oVirt 3rd party dependencies
 
-????-??-?? - Version 4.4.2
+2020-07-29 - Version 4.4.2
  * Inital packaging
-
+ * +gwt-servlet 2.9.0 - BZ#1860309
+ * +springframework 5.0.4.RELEASE

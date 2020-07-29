@@ -15,7 +15,7 @@ BuildRequires:	tar
 BuildRequires:	unzip
 BuildRequires:	curl
 
-Provides: bundled(gwt-servlet) = 2.8.0
+Provides: bundled(gwt-servlet) = 2.9.0
 Provides: bundled(spring-aop) = 5.0.4
 Provides: bundled(spring-beans) = 5.0.4
 Provides: bundled(spring-context) = 5.0.4
