@@ -1,5 +1,10 @@
-curl
 git
+java-11-openjdk-devel
+httpcomponents-project
 make
+maven
+maven-dependency-plugin
+maven-local
+sed
 tar
 unzip

@@ -1,7 +1,8 @@
-ovirt-dependnecies -- oVirt 3rd party dependencies
+ovirt-dependencies -- oVirt 3rd party dependencies
 
 ????-??-?? - Version 4.4.3
- * 
+ * Dependencies fetched using maven
+ * Maven pom introduced
 
 2020-07-29 - Version 4.4.2
  * Inital packaging

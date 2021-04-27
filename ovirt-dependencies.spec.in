@@ -1,0 +1,77 @@
+
+%global __jar_repack 0
+
+Summary:    oVirt 3rd party dependencies
+Name:       @PACKAGE_NAME@
+Version:    @PACKAGE_RPM_VERSION@
+Release:    @PACKAGE_RPM_RELEASE@%{?release_suffix}%{?dist}
+License:    @PACKAGE_LICENSE@
+URL:        http://www.ovirt.org
+Source:     @PACKAGE_NAME@-@PACKAGE_VERSION@-@PACKAGE_RPM_RELEASE@.tar.gz
+
+BuildArch:  noarch
+
+BuildRequires:  java-11-openjdk-devel
+BuildRequires:  javapackages-tools
+BuildRequires:  javapackages-local
+BuildRequires:  httpcomponents-project
+BuildRequires:  maven >= 3.5.0
+BuildRequires:  maven-local
+BuildRequires:  maven-dependency-plugin
+BuildRequires:  tar
+
+Provides:   bundled(gwt-servlet) = @GWT_VERSION@
+
+Provides:   bundled(spring-aop) = @SPRING_VERSION@
+Provides:   bundled(spring-beans) = @SPRING_VERSION@
+Provides:   bundled(spring-context) = @SPRING_VERSION@
+Provides:   bundled(spring-core) = @SPRING_VERSION@
+Provides:   bundled(spring-jcl) = @SPRING_VERSION@
+Provides:   bundled(spring-expression) = @SPRING_VERSION@
+Provides:   bundled(spring-instrument) = @SPRING_VERSION@
+Provides:   bundled(spring-jdbc) = @SPRING_VERSION@
+Provides:   bundled(spring-test) = @SPRING_VERSION@
+Provides:   bundled(spring-tx) = @SPRING_VERSION@
+
+%description
+oVirt 3rd party dependencies
+
+%prep
+%setup -q -n %{name}-@PACKAGE_VERSION@
+
+%build
+# Necessary to override the default for xmvn, which is JDK 8
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+
+%mvn_build -j
+
+%install
+%pom_remove_parent dependencies/com/google/gwt/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
+%mvn_artifact dependencies/com/google/gwt/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
+%mvn_artifact dependencies/com/google/gwt/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.pom dependencies/com/google/gwt/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.jar
+
+%mvn_artifact dependencies/org/springframework/spring-aop/@SPRING_VERSION@.RELEASE/spring-aop-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-aop/@SPRING_VERSION@.RELEASE/spring-aop-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-beans/@SPRING_VERSION@.RELEASE/spring-beans-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-beans/@SPRING_VERSION@.RELEASE/spring-beans-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-context/@SPRING_VERSION@.RELEASE/spring-context-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-context/@SPRING_VERSION@.RELEASE/spring-context-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-core/@SPRING_VERSION@.RELEASE/spring-core-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-core/@SPRING_VERSION@.RELEASE/spring-core-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-jcl/@SPRING_VERSION@.RELEASE/spring-jcl-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-jcl/@SPRING_VERSION@.RELEASE/spring-jcl-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-expression/@SPRING_VERSION@.RELEASE/spring-expression-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-expression/@SPRING_VERSION@.RELEASE/spring-expression-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-instrument/@SPRING_VERSION@.RELEASE/spring-instrument-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-instrument/@SPRING_VERSION@.RELEASE/spring-instrument-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-jdbc/@SPRING_VERSION@.RELEASE/spring-jdbc-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-jdbc/@SPRING_VERSION@.RELEASE/spring-jdbc-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-test/@SPRING_VERSION@.RELEASE/spring-test-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-test/@SPRING_VERSION@.RELEASE/spring-test-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-tx/@SPRING_VERSION@.RELEASE/spring-tx-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-tx/@SPRING_VERSION@.RELEASE/spring-tx-@SPRING_VERSION@.RELEASE.jar
+
+%mvn_install
+
+%files -f .mfiles
+%dir %{_jnidir}/%{name}
+%dir %{_javadir}/%{name}
+
+%doc ChangeLog
+%license COPYING
+%license COPYING.csv
+
+%changelog
+* Thu Mar 26 2020 Sandro Bonazzola <sbonazzo@redhat.com> - 4.4.2-1
+- Initial packaging
+

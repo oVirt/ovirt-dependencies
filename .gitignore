@@ -1,5 +1,10 @@
 downloads
 ovirt-dependencies.spec
-ovirt-dependencies.spec.in
+pom.xml
 COPYING
 COPYING.csv
+target
+dependencies
+.idea
+doc
+ovirt-dependencies-*.tar.gz
