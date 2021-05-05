@@ -20,6 +20,6 @@ TODO: Make it consistent with other java/maven based projects
 ### Add or remove a dependency for runtime package
 
 1. Update `pom.xml.in` with requested dependencies.
-2. Make sure to add or update artifact & SHA1 sum to  `conf.d/*.conf`
+2. Make sure to add or update artifact at `conf.d/*.conf`
 3. Add/remove `%mvn_artifact` under `%install` section of `ovirt-dependencies.spec.in`
 

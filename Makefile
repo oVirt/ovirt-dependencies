@@ -42,7 +42,6 @@ dist:	\
 	doc \
 	pom.xml \
 	maven_dist \
-	checksum-verification \
 	dependencies_list \
 	ovirt-dependencies.spec \
 	$(NULL)
@@ -57,7 +56,7 @@ dist:	\
 		$(NULL)
 
 maven_dist:
-	mvn -Pdist package
+	mvn -C -Pdist package
 
 dependencies_list:
 	find dependencies -name \*.jar -o -name \*.pom > dependencies/dependencies.list
@@ -93,8 +92,3 @@ ovirt-dependencies.spec:	ovirt-dependencies.spec.in
 		-e 's/@SPRING_VERSION@/$(SPRING_VERSION)/g' \
 		-e 's/@GWT_VERSION@/$(GWT_VERSION)/g' \
 		$< > $@
-
-
-checksum-verification:
-	./checksum.sh dependencies
-	$(NULL)

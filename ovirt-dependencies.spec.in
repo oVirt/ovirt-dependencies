@@ -43,7 +43,7 @@ oVirt 3rd party dependencies
 # Necessary to override the default for xmvn, which is JDK 8
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 
-%mvn_build -j
+%mvn_build -j -- -C
 
 %install
 %pom_remove_parent dependencies/com/google/gwt/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
