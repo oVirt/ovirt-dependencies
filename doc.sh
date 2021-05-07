@@ -26,7 +26,7 @@ __EOF__
 
 docfile() {
 	cat >> "${TMPCOPYING}" << __EOF__
-    $(basename "${url}")
+    "${artifact}"
 __EOF__
 }
 

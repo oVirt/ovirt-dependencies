@@ -17,16 +17,15 @@ common_iterate() {
 
 			${perconf}
 
-			urlindex=0
+			artifact_index=0
 			while true; do
-				eval url="\${URL${urlindex}}"
-				eval extract="\${EXTRACT${urlindex}}"
-				eval artifact="\${ARTIFACT${urlindex}}"
-				[ -z "${url}" ] && break
+				eval extract="\${EXTRACT${artifact_index}}"
+				eval artifact="\${ARTIFACT${artifact_index}}"
+				[ -z "${artifact}" ] && break
 
 				${perfile}
 
-				urlindex="$((${urlindex}+1))"
+				artifact_index="$((${artifact_index}+1))"
 			done
 		) || exit 1
 	done || exit 1
