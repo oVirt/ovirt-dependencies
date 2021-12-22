@@ -3,7 +3,7 @@
 #       using for selecting the right src.rpm to be copied.
 
 installdeps:
-	dnf -y install coreutils curl dnf-utils findutils git make rpmdevtools sed
+	dnf -y install coreutils curl dnf-utils findutils git java-11-openjdk-devel make maven rpmdevtools sed
 
 srpm: installdeps
 	.automation/build-srpm.sh

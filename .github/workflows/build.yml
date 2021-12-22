@@ -59,9 +59,11 @@ jobs:
         dnf install -y \
           createrepo_c \
           dnf-utils \
+          findutils \
           git \
           gzip \
           java-11-openjdk-devel \
+          make \
           maven \
           rpmdevtools \
           sed \
