@@ -14,7 +14,7 @@ BuildArch:  noarch
 BuildRequires:  java-11-openjdk-devel
 BuildRequires:  javapackages-tools
 BuildRequires:  javapackages-local
-BuildRequires:  httpcomponents-project
+BuildRequires:  make
 BuildRequires:  maven >= 3.5.0
 BuildRequires:  maven-local
 BuildRequires:  maven-dependency-plugin
