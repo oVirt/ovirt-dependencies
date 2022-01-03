@@ -33,6 +33,10 @@ Provides:   bundled(spring-jdbc) = @SPRING_VERSION@
 Provides:   bundled(spring-test) = @SPRING_VERSION@
 Provides:   bundled(spring-tx) = @SPRING_VERSION@
 
+# Required due to upgrade issues around moving from rhvm-dependencies to ovirt-dependencies
+Provides:  rhvm-dependencies
+Obsoletes:  rhvm-dependencies < 4.5.0
+
 %description
 oVirt 3rd party dependencies
 
