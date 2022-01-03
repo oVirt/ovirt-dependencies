@@ -1,5 +1,5 @@
 PACKAGE_NAME=ovirt-dependencies
-VERSION=4.5.0
+VERSION=4.5.1
 MILESTONE=
 ifneq ($(MILESTONE),)
 SUFFIX:=_$(MILESTONE)

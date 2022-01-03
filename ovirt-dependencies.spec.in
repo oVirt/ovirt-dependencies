@@ -76,6 +76,9 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 %license COPYING.csv
 
 %changelog
+* Mon Jan 03 2022 Martin Perina <mperina@redhat.com> - 4.5.1-1
+- Fix issues around moving from rhvm-dependencies package
+
 * Sun Dec 26 2021 Martin Perina <mperina@redhat.com> - 4.5.0-1
 - packaging: use maven to download jars
 - packaging: drop checksum verification
