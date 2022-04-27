@@ -22,6 +22,8 @@ BuildRequires:  tar
 
 Provides:   bundled(gwt-servlet) = @GWT_VERSION@
 
+Provides:   bundled(postgresql-jdbc) = @POSTGRESQL_JDBC_VERSION@
+
 Provides:   bundled(spring-aop) = @SPRING_VERSION@
 Provides:   bundled(spring-beans) = @SPRING_VERSION@
 Provides:   bundled(spring-context) = @SPRING_VERSION@
@@ -54,6 +56,10 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 %mvn_artifact dependencies/com/google/gwt/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
 %mvn_artifact dependencies/com/google/gwt/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.pom dependencies/com/google/gwt/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.jar
 
+%mvn_artifact dependencies/org/postgresql/pgjdbc-versions/@POSTGRESQL_JDBC_PARENT_VERSION@/pgjdbc-versions-@POSTGRESQL_JDBC_PARENT_VERSION@.pom
+%mvn_artifact dependencies/org/postgresql/pgjdbc-core-parent/@POSTGRESQL_JDBC_PARENT_VERSION@/pgjdbc-core-parent-@POSTGRESQL_JDBC_PARENT_VERSION@.pom
+%mvn_artifact dependencies/org/postgresql/postgresql/@POSTGRESQL_JDBC_VERSION@/postgresql-@POSTGRESQL_JDBC_VERSION@.pom dependencies/org/postgresql/postgresql/@POSTGRESQL_JDBC_VERSION@/postgresql-@POSTGRESQL_JDBC_VERSION@.jar
+
 %mvn_artifact dependencies/org/springframework/spring-aop/@SPRING_VERSION@.RELEASE/spring-aop-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-aop/@SPRING_VERSION@.RELEASE/spring-aop-@SPRING_VERSION@.RELEASE.jar
 %mvn_artifact dependencies/org/springframework/spring-beans/@SPRING_VERSION@.RELEASE/spring-beans-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-beans/@SPRING_VERSION@.RELEASE/spring-beans-@SPRING_VERSION@.RELEASE.jar
 %mvn_artifact dependencies/org/springframework/spring-context/@SPRING_VERSION@.RELEASE/spring-context-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-context/@SPRING_VERSION@.RELEASE/spring-context-@SPRING_VERSION@.RELEASE.jar
@@ -76,6 +82,9 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 %license COPYING.csv
 
 %changelog
+* Wed Apr 27 2022 Martin Perina <mperina@redhat.com> - 4.5.2-1
+- Add PostgreSQL JDBC driver
+
 * Mon Jan 03 2022 Martin Perina <mperina@redhat.com> - 4.5.1-1
 - Fix issues around moving from rhvm-dependencies package
 
