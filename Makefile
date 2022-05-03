@@ -14,7 +14,7 @@ JAVADIR=$(DATAROOTDIR)/java
 APPJAVADIR=$(JAVADIR)/$(PACKAGE_NAME)
 
 # dependencies start
-SPRING_VERSION=5.0.4
+SPRING_VERSION=5.3.19
 GWT_VERSION=2.9.0
 # dependencies stop
 
