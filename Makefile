@@ -16,6 +16,7 @@ APPJAVADIR=$(JAVADIR)/$(PACKAGE_NAME)
 # dependencies start
 SPRING_VERSION=5.3.19
 GWT_VERSION=2.9.0
+HIBERNATE_VERSION=6.0.18
 # dependencies stop
 
 all:	\
@@ -80,6 +81,7 @@ pom.xml: pom.xml.in
 		-e 's/@PACKAGE_VERSION@/$(PACKAGE_VERSION)/g' \
 		-e 's/@SPRING_VERSION@/$(SPRING_VERSION)/g' \
 		-e 's/@GWT_VERSION@/$(GWT_VERSION)/g' \
+		-e 's/@HIBERNATE_VERSION@/$(HIBERNATE_VERSION)/g' \
 		$< > $@
 
 ovirt-dependencies.spec:	ovirt-dependencies.spec.in
@@ -91,4 +93,5 @@ ovirt-dependencies.spec:	ovirt-dependencies.spec.in
 		-e 's/@PACKAGE_RPM_RELEASE@/$(PACKAGE_RPM_RELEASE)/g' \
 		-e 's/@SPRING_VERSION@/$(SPRING_VERSION)/g' \
 		-e 's/@GWT_VERSION@/$(GWT_VERSION)/g' \
+		-e 's/@HIBERNATE_VERSION@/$(HIBERNATE_VERSION)/g' \
 		$< > $@

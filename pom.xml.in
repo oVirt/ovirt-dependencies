@@ -67,6 +67,7 @@ limitations under the License.
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>@SPRING_VERSION@</spring.version>
         <gwt.version>@GWT_VERSION@</gwt.version>
+        <hibernate.version>@HIBERNATE_VERSION@.Final</hibernate.version>
     </properties>
 
     <dependencyManagement>
@@ -128,6 +129,13 @@ limitations under the License.
                 <artifactId>gwt-servlet</artifactId>
                 <version>${gwt.version}</version>
             </dependency>
+
+            <!-- Hibernate Validator -->
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -175,6 +183,10 @@ limitations under the License.
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
         </dependency>
     </dependencies>
 

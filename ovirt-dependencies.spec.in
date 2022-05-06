@@ -19,6 +19,8 @@ BuildRequires:  maven >= 3.5.0
 BuildRequires:  maven-local
 BuildRequires:  maven-dependency-plugin
 BuildRequires:  tar
+BuildRequires:  bean-validation-api
+BuildRequires:  classmate
 
 Provides:   bundled(gwt-servlet) = @GWT_VERSION@
 
@@ -32,6 +34,8 @@ Provides:   bundled(spring-instrument) = @SPRING_VERSION@
 Provides:   bundled(spring-jdbc) = @SPRING_VERSION@
 Provides:   bundled(spring-test) = @SPRING_VERSION@
 Provides:   bundled(spring-tx) = @SPRING_VERSION@
+
+Provides:   bundled(validator) = @HIBERNATE_VERSION@
 
 # Required due to upgrade issues around moving from rhvm-dependencies to ovirt-dependencies
 Provides:  rhvm-dependencies
@@ -64,6 +68,9 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 %mvn_artifact dependencies/org/springframework/spring-jdbc/@SPRING_VERSION@/spring-jdbc-@SPRING_VERSION@.pom dependencies/org/springframework/spring-jdbc/@SPRING_VERSION@/spring-jdbc-@SPRING_VERSION@.jar
 %mvn_artifact dependencies/org/springframework/spring-test/@SPRING_VERSION@/spring-test-@SPRING_VERSION@.pom dependencies/org/springframework/spring-test/@SPRING_VERSION@/spring-test-@SPRING_VERSION@.jar
 %mvn_artifact dependencies/org/springframework/spring-tx/@SPRING_VERSION@/spring-tx-@SPRING_VERSION@.pom dependencies/org/springframework/spring-tx/@SPRING_VERSION@/spring-tx-@SPRING_VERSION@.jar
+
+%mvn_artifact dependencies/org/hibernate/validator/hibernate-validator-parent/@HIBERNATE_VERSION@.Final/hibernate-validator-parent-@HIBERNATE_VERSION@.Final.pom
+%mvn_artifact dependencies/org/hibernate/validator/hibernate-validator/@HIBERNATE_VERSION@.Final/hibernate-validator-@HIBERNATE_VERSION@.Final.pom dependencies/org/hibernate/validator/hibernate-validator/@HIBERNATE_VERSION@.Final/hibernate-validator-@HIBERNATE_VERSION@.Final.jar
 
 %mvn_install
 
