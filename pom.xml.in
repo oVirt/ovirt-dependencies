@@ -65,7 +65,7 @@ limitations under the License.
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>@SPRING_VERSION@.RELEASE</spring.version>
+        <spring.version>@SPRING_VERSION@</spring.version>
         <gwt.version>@GWT_VERSION@</gwt.version>
     </properties>
 

@@ -54,16 +54,16 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 %mvn_artifact dependencies/com/google/gwt/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
 %mvn_artifact dependencies/com/google/gwt/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.pom dependencies/com/google/gwt/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.jar
 
-%mvn_artifact dependencies/org/springframework/spring-aop/@SPRING_VERSION@.RELEASE/spring-aop-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-aop/@SPRING_VERSION@.RELEASE/spring-aop-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-beans/@SPRING_VERSION@.RELEASE/spring-beans-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-beans/@SPRING_VERSION@.RELEASE/spring-beans-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-context/@SPRING_VERSION@.RELEASE/spring-context-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-context/@SPRING_VERSION@.RELEASE/spring-context-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-core/@SPRING_VERSION@.RELEASE/spring-core-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-core/@SPRING_VERSION@.RELEASE/spring-core-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-jcl/@SPRING_VERSION@.RELEASE/spring-jcl-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-jcl/@SPRING_VERSION@.RELEASE/spring-jcl-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-expression/@SPRING_VERSION@.RELEASE/spring-expression-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-expression/@SPRING_VERSION@.RELEASE/spring-expression-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-instrument/@SPRING_VERSION@.RELEASE/spring-instrument-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-instrument/@SPRING_VERSION@.RELEASE/spring-instrument-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-jdbc/@SPRING_VERSION@.RELEASE/spring-jdbc-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-jdbc/@SPRING_VERSION@.RELEASE/spring-jdbc-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-test/@SPRING_VERSION@.RELEASE/spring-test-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-test/@SPRING_VERSION@.RELEASE/spring-test-@SPRING_VERSION@.RELEASE.jar
-%mvn_artifact dependencies/org/springframework/spring-tx/@SPRING_VERSION@.RELEASE/spring-tx-@SPRING_VERSION@.RELEASE.pom dependencies/org/springframework/spring-tx/@SPRING_VERSION@.RELEASE/spring-tx-@SPRING_VERSION@.RELEASE.jar
+%mvn_artifact dependencies/org/springframework/spring-aop/@SPRING_VERSION@/spring-aop-@SPRING_VERSION@.pom dependencies/org/springframework/spring-aop/@SPRING_VERSION@/spring-aop-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-beans/@SPRING_VERSION@/spring-beans-@SPRING_VERSION@.pom dependencies/org/springframework/spring-beans/@SPRING_VERSION@/spring-beans-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-context/@SPRING_VERSION@/spring-context-@SPRING_VERSION@.pom dependencies/org/springframework/spring-context/@SPRING_VERSION@/spring-context-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-core/@SPRING_VERSION@/spring-core-@SPRING_VERSION@.pom dependencies/org/springframework/spring-core/@SPRING_VERSION@/spring-core-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-jcl/@SPRING_VERSION@/spring-jcl-@SPRING_VERSION@.pom dependencies/org/springframework/spring-jcl/@SPRING_VERSION@/spring-jcl-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-expression/@SPRING_VERSION@/spring-expression-@SPRING_VERSION@.pom dependencies/org/springframework/spring-expression/@SPRING_VERSION@/spring-expression-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-instrument/@SPRING_VERSION@/spring-instrument-@SPRING_VERSION@.pom dependencies/org/springframework/spring-instrument/@SPRING_VERSION@/spring-instrument-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-jdbc/@SPRING_VERSION@/spring-jdbc-@SPRING_VERSION@.pom dependencies/org/springframework/spring-jdbc/@SPRING_VERSION@/spring-jdbc-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-test/@SPRING_VERSION@/spring-test-@SPRING_VERSION@.pom dependencies/org/springframework/spring-test/@SPRING_VERSION@/spring-test-@SPRING_VERSION@.jar
+%mvn_artifact dependencies/org/springframework/spring-tx/@SPRING_VERSION@/spring-tx-@SPRING_VERSION@.pom dependencies/org/springframework/spring-tx/@SPRING_VERSION@/spring-tx-@SPRING_VERSION@.jar
 
 %mvn_install
 
