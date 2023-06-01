@@ -1,6 +1,9 @@
 ovirt-dependencies -- oVirt 3rd party dependencies
 
-????-??-?? - Version 4.5.2
+????-??-?? - Version 4.5.3
+ * Bump SpringFramework to 5.3.27
+
+2022-05-10 - Version 4.5.2
  * Dependencies fetched using maven
  * Maven pom introduced
  * Bump Spring Framework to 5.3.19
