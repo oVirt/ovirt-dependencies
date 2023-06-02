@@ -76,6 +76,9 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 %license COPYING.csv
 
 %changelog
+* Fri Jun 02 2023 Martin Perina <mperina@redhat.com> - 4.5.3-1
+- Bump SpringFramework to 5.3.27
+
 * Tue May 10 2022 Martin Perina <mperina@redhat.com> - 4.5.2-1
 - Bump SpringFramework to 5.3.19
 
