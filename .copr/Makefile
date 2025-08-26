@@ -5,7 +5,7 @@
 .PHONY: installdeps git_cfg_safe srpm
 
 installdeps:
-	dnf -y install coreutils curl dnf-utils findutils git java-11-openjdk-devel make maven rpmdevtools sed
+	dnf -y install coreutils curl dnf-utils findutils git java-21-openjdk-devel make maven rpmdevtools sed
 
 git_cfg_safe:
 	# From git 2.35.2 we need to mark temporary directory, where the project is cloned to, as safe, otherwise
