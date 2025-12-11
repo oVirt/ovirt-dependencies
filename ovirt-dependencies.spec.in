@@ -46,9 +46,9 @@ oVirt 3rd party dependencies
 %mvn_build -j -- -C
 
 %install
-%pom_remove_parent dependencies/com/google/gwt/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
-%mvn_artifact dependencies/com/google/gwt/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
-%mvn_artifact dependencies/com/google/gwt/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.pom dependencies/com/google/gwt/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.jar
+%pom_remove_parent dependencies/org/gwtproject/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
+%mvn_artifact dependencies/org/gwtproject/gwt/@GWT_VERSION@/gwt-@GWT_VERSION@.pom
+%mvn_artifact dependencies/org/gwtproject/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.pom dependencies/org/gwtproject/gwt-servlet/@GWT_VERSION@/gwt-servlet-@GWT_VERSION@.jar
 
 %mvn_artifact dependencies/org/springframework/spring-aop/@SPRING_VERSION@/spring-aop-@SPRING_VERSION@.pom dependencies/org/springframework/spring-aop/@SPRING_VERSION@/spring-aop-@SPRING_VERSION@.jar
 %mvn_artifact dependencies/org/springframework/spring-beans/@SPRING_VERSION@/spring-beans-@SPRING_VERSION@.pom dependencies/org/springframework/spring-beans/@SPRING_VERSION@/spring-beans-@SPRING_VERSION@.jar
@@ -64,7 +64,6 @@ oVirt 3rd party dependencies
 %mvn_install
 
 %files -f .mfiles
-%dir %{_jnidir}/%{name}
 %dir %{_javadir}/%{name}
 
 %doc ChangeLog
@@ -72,6 +71,10 @@ oVirt 3rd party dependencies
 %license COPYING.csv
 
 %changelog
+* Thu Dec 11 2025 Jean-Louis Dupond <jean-louis@dupond.be> - 4.5.7-1
+- Bump Spring Framework to 5.3.39
+- Bump GWT to 2.12.1
+
 * Fri Jun 02 2023 Martin Perina <mperina@redhat.com> - 4.5.3-1
 - Bump SpringFramework to 5.3.27
 
