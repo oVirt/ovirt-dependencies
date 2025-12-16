@@ -11,6 +11,7 @@ Source:     @PACKAGE_NAME@-@PACKAGE_VERSION@-@PACKAGE_RPM_RELEASE@.tar.gz
 
 BuildArch:  noarch
 
+BuildRequires:  javapackages-tools
 BuildRequires:  java-21-openjdk-devel
 BuildRequires:  make
 BuildRequires:  maven >= 3.5.0
