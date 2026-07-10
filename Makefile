@@ -1,12 +1,8 @@
 PACKAGE_NAME=ovirt-dependencies
 VERSION=4.5.8
-MILESTONE=master
 PACKAGE_VERSION=$(VERSION)
 PACKAGE_RPM_VERSION=$(VERSION)
-PACKAGE_RPM_RELEASE=1
-ifneq ($(MILESTONE),)
-PACKAGE_RPM_RELEASE=0.0.$(MILESTONE).$(shell date -u +%Y%m%d%H%M%S)
-endif
+PACKAGE_RPM_RELEASE?=0.master
 
 PREFIX=/usr/local
 DATAROOTDIR=$(PREFIX)/share
@@ -38,6 +34,10 @@ clean-generated:
 .PHONY: ovirt-dependencies.spec.in
 .PHONY: pom.xml.in
 
+TMPREPOS = tmp.repos
+RPMBUILD_ARGS := --define="_topdir $(shell pwd)/$(TMPREPOS)"
+RPMBUILD_ARGS += $(if $(RELEASE_SUFFIX),--define="release_suffix $(RELEASE_SUFFIX)")
+
 dist:	\
 	doc \
 	pom.xml \
@@ -48,17 +48,32 @@ dist:	\
 
 	git ls-files | tar --files-from /proc/self/fd/0 --files-from dependencies/dependencies.list \
 		--xform 's#^#$(PACKAGE_NAME)-$(PACKAGE_VERSION)/#' \
-		-czf "$(PACKAGE_NAME)-$(PACKAGE_VERSION)-$(PACKAGE_RPM_RELEASE).tar.gz" \
+		-czf "$(PACKAGE_NAME)-$(PACKAGE_VERSION).tar.gz" \
 		ovirt-dependencies.spec \
 		pom.xml \
 		COPYING \
 		COPYING.csv \
 		$(NULL)
 
+rpm: srpm
+	dnf builddep -y $(TMPREPOS)/SRPMS/*.src.rpm
+	rpmbuild $(RPMBUILD_ARGS) --rebuild $(TMPREPOS)/SRPMS/*.src.rpm
+	@echo
+	@echo "rpm available at '$(TMPREPOS)'"
+
+srpm: dist
+	rm -rf $(TMPREPOS)
+	mkdir -p $(TMPREPOS)/{SPECS,RPMS,SRPMS,SOURCES}
+	rpmbuild $(RPMBUILD_ARGS) -ts $(PACKAGE_NAME)-$(PACKAGE_VERSION).tar.gz
+	@echo
+	@echo "srpm available at '$(TMPREPOS)'"
+
+.PHONY: rpm srpm
+
 maven_dist:
 	mvn -C -Pdist package
 
-dependencies_list:
+dependencies_list: maven_dist
 	find dependencies -name \*.jar -o -name \*.pom > dependencies/dependencies.list
 
 doc:	\
